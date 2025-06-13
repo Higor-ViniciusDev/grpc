@@ -18,7 +18,7 @@ func NewCategoriaService(db *database.Categoria) *CategoriaService {
 	}
 }
 
-func (c *CategoriaService) CriarCategoria(_ context.Context, in *pb.CreateCategoria) (*pb.CategoriaResponse, error) {
+func (c *CategoriaService) CriarCategoria(_ context.Context, in *pb.CreateCategoria) (*pb.Categoria, error) {
 	categoria, err := c.CategoriaDB.Create(in.Nome, in.Descricao)
 
 	if err != nil {
@@ -31,7 +31,29 @@ func (c *CategoriaService) CriarCategoria(_ context.Context, in *pb.CreateCatego
 		Descricao: categoria.Descricao,
 	}
 
-	return &pb.CategoriaResponse{
-		Categoria: CategoriaService,
+	return CategoriaService, nil
+}
+
+func (c *CategoriaService) ListaCategorias(_ context.Context, _ *pb.Blank) (*pb.ListaDeCategorias, error) {
+	cateSlice, err := c.CategoriaDB.FindAll()
+
+	if err != nil {
+		return nil, err
+	}
+
+	var sliCate []*pb.Categoria
+
+	for _, row := range cateSlice {
+		cateResponse := &pb.Categoria{
+			Id:        row.ID,
+			Nome:      row.Nome,
+			Descricao: row.Descricao,
+		}
+
+		sliCate = append(sliCate, cateResponse)
+	}
+
+	return &pb.ListaDeCategorias{
+		Categoria: sliCate,
 	}, nil
 }
