@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v4.24.4
-// source: proto/curso_categoria.proto
+// source: curso_categoria.proto
 
 package pb
 
@@ -117,5 +117,5 @@ var CategoriaService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/curso_categoria.proto",
+	Metadata: "curso_categoria.proto",
 }

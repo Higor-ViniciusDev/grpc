@@ -4,6 +4,7 @@ go 1.24.1
 
 require (
 	github.com/google/uuid v1.6.0
+	github.com/mattn/go-sqlite3 v1.14.28
 	google.golang.org/grpc v1.73.0
 	google.golang.org/protobuf v1.36.6
 )
@@ -14,3 +15,5 @@ require (
 	golang.org/x/text v0.23.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250324211829-b45e905df463 // indirect
 )
+
+replace google.golang.org/grpc => github.com/grpc/grpc-go v1.73.0

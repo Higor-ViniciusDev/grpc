@@ -1,6 +1,8 @@
 # Usa a imagem golang:1.24.1-alpine como base
 FROM golang:1.24.1-alpine
 
+RUN mkdir /app
+
 # Define o diretório de trabalho
 WORKDIR /app
 
@@ -14,7 +16,7 @@ RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest && \
 # Cria o usuário 'higor' com permissões sudo
 RUN adduser -D higor && \
     echo "higor ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/higor && \
-    chmod 0440 /etc/sudoers.d/higor
+    chmod 7777 /etc/sudoers.d/higor
 
 # Define o usuário padrão como 'higor'
 USER higor

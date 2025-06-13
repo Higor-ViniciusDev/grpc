@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v4.24.4
-// source: proto/curso_categoria.proto
+// source: curso_categoria.proto
 
 package pb
 
@@ -32,7 +32,7 @@ type Categoria struct {
 
 func (x *Categoria) Reset() {
 	*x = Categoria{}
-	mi := &file_proto_curso_categoria_proto_msgTypes[0]
+	mi := &file_curso_categoria_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *Categoria) String() string {
 func (*Categoria) ProtoMessage() {}
 
 func (x *Categoria) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_curso_categoria_proto_msgTypes[0]
+	mi := &file_curso_categoria_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *Categoria) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Categoria.ProtoReflect.Descriptor instead.
 func (*Categoria) Descriptor() ([]byte, []int) {
-	return file_proto_curso_categoria_proto_rawDescGZIP(), []int{0}
+	return file_curso_categoria_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Categoria) GetId() string {
@@ -90,7 +90,7 @@ type CategoriaResponse struct {
 
 func (x *CategoriaResponse) Reset() {
 	*x = CategoriaResponse{}
-	mi := &file_proto_curso_categoria_proto_msgTypes[1]
+	mi := &file_curso_categoria_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -102,7 +102,7 @@ func (x *CategoriaResponse) String() string {
 func (*CategoriaResponse) ProtoMessage() {}
 
 func (x *CategoriaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_curso_categoria_proto_msgTypes[1]
+	mi := &file_curso_categoria_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -115,7 +115,7 @@ func (x *CategoriaResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CategoriaResponse.ProtoReflect.Descriptor instead.
 func (*CategoriaResponse) Descriptor() ([]byte, []int) {
-	return file_proto_curso_categoria_proto_rawDescGZIP(), []int{1}
+	return file_curso_categoria_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CategoriaResponse) GetCategoria() *Categoria {
@@ -135,7 +135,7 @@ type CreateCategoria struct {
 
 func (x *CreateCategoria) Reset() {
 	*x = CreateCategoria{}
-	mi := &file_proto_curso_categoria_proto_msgTypes[2]
+	mi := &file_curso_categoria_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -147,7 +147,7 @@ func (x *CreateCategoria) String() string {
 func (*CreateCategoria) ProtoMessage() {}
 
 func (x *CreateCategoria) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_curso_categoria_proto_msgTypes[2]
+	mi := &file_curso_categoria_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -160,7 +160,7 @@ func (x *CreateCategoria) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCategoria.ProtoReflect.Descriptor instead.
 func (*CreateCategoria) Descriptor() ([]byte, []int) {
-	return file_proto_curso_categoria_proto_rawDescGZIP(), []int{2}
+	return file_curso_categoria_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateCategoria) GetNome() string {
@@ -177,11 +177,11 @@ func (x *CreateCategoria) GetDescricao() string {
 	return ""
 }
 
-var File_proto_curso_categoria_proto protoreflect.FileDescriptor
+var File_curso_categoria_proto protoreflect.FileDescriptor
 
-const file_proto_curso_categoria_proto_rawDesc = "" +
+const file_curso_categoria_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/curso_categoria.proto\x12\x02pb\"M\n" +
+	"\x15curso_categoria.proto\x12\x02pb\"M\n" +
 	"\tCategoria\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04nome\x18\x02 \x01(\tR\x04nome\x12\x1c\n" +
@@ -195,24 +195,24 @@ const file_proto_curso_categoria_proto_rawDesc = "" +
 	"\x0eCriarCategoria\x12\x13.pb.CreateCategoria\x1a\x15.pb.CategoriaResponse\"\x00B\rZ\vinternal/pbb\x06proto3"
 
 var (
-	file_proto_curso_categoria_proto_rawDescOnce sync.Once
-	file_proto_curso_categoria_proto_rawDescData []byte
+	file_curso_categoria_proto_rawDescOnce sync.Once
+	file_curso_categoria_proto_rawDescData []byte
 )
 
-func file_proto_curso_categoria_proto_rawDescGZIP() []byte {
-	file_proto_curso_categoria_proto_rawDescOnce.Do(func() {
-		file_proto_curso_categoria_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_curso_categoria_proto_rawDesc), len(file_proto_curso_categoria_proto_rawDesc)))
+func file_curso_categoria_proto_rawDescGZIP() []byte {
+	file_curso_categoria_proto_rawDescOnce.Do(func() {
+		file_curso_categoria_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_curso_categoria_proto_rawDesc), len(file_curso_categoria_proto_rawDesc)))
 	})
-	return file_proto_curso_categoria_proto_rawDescData
+	return file_curso_categoria_proto_rawDescData
 }
 
-var file_proto_curso_categoria_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_proto_curso_categoria_proto_goTypes = []any{
+var file_curso_categoria_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_curso_categoria_proto_goTypes = []any{
 	(*Categoria)(nil),         // 0: pb.Categoria
 	(*CategoriaResponse)(nil), // 1: pb.CategoriaResponse
 	(*CreateCategoria)(nil),   // 2: pb.CreateCategoria
 }
-var file_proto_curso_categoria_proto_depIdxs = []int32{
+var file_curso_categoria_proto_depIdxs = []int32{
 	0, // 0: pb.CategoriaResponse.categoria:type_name -> pb.Categoria
 	2, // 1: pb.CategoriaService.CriarCategoria:input_type -> pb.CreateCategoria
 	1, // 2: pb.CategoriaService.CriarCategoria:output_type -> pb.CategoriaResponse
@@ -223,26 +223,26 @@ var file_proto_curso_categoria_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_proto_curso_categoria_proto_init() }
-func file_proto_curso_categoria_proto_init() {
-	if File_proto_curso_categoria_proto != nil {
+func init() { file_curso_categoria_proto_init() }
+func file_curso_categoria_proto_init() {
+	if File_curso_categoria_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_curso_categoria_proto_rawDesc), len(file_proto_curso_categoria_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_curso_categoria_proto_rawDesc), len(file_curso_categoria_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_proto_curso_categoria_proto_goTypes,
-		DependencyIndexes: file_proto_curso_categoria_proto_depIdxs,
-		MessageInfos:      file_proto_curso_categoria_proto_msgTypes,
+		GoTypes:           file_curso_categoria_proto_goTypes,
+		DependencyIndexes: file_curso_categoria_proto_depIdxs,
+		MessageInfos:      file_curso_categoria_proto_msgTypes,
 	}.Build()
-	File_proto_curso_categoria_proto = out.File
-	file_proto_curso_categoria_proto_goTypes = nil
-	file_proto_curso_categoria_proto_depIdxs = nil
+	File_curso_categoria_proto = out.File
+	file_curso_categoria_proto_goTypes = nil
+	file_curso_categoria_proto_depIdxs = nil
 }
