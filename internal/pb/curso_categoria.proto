@@ -19,9 +19,16 @@ message ListaDeCategorias {
     repeated Categoria categoria = 1;
 }
 
+message GetCategoriaByIdInput {
+    string id = 1;
+}
+
 service CategoriaService {
     rpc CriarCategoria (CreateCategoria) returns (Categoria) {};
-    rpc ListaCategorias (Blank) returns (ListaDeCategorias);
+    rpc CriarCategoriaStream (stream CreateCategoria) returns (ListaDeCategorias) {};
+    rpc CriarCategoriaStreamBI (stream CreateCategoria) returns (stream Categoria) {};
+    rpc ListaCategorias (Blank) returns (ListaDeCategorias){};
+    rpc GetCategoriaById(GetCategoriaByIdInput) returns (Categoria){};
 }
 
 

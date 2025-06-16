@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"io"
 
 	"github.com/Higor-ViniciusDev/grpc/internal/database"
 	"github.com/Higor-ViniciusDev/grpc/internal/pb"
@@ -56,4 +57,73 @@ func (c *CategoriaService) ListaCategorias(_ context.Context, _ *pb.Blank) (*pb.
 	return &pb.ListaDeCategorias{
 		Categoria: sliCate,
 	}, nil
+}
+
+func (c *CategoriaService) GetCategoriaById(_ context.Context, in *pb.GetCategoriaByIdInput) (*pb.Categoria, error) {
+	categoriaDB, err := c.CategoriaDB.FindById(in.Id)
+
+	if err != nil {
+		return nil, err
+	}
+	CategoriaService := &pb.Categoria{
+		Id:        categoriaDB.ID,
+		Nome:      categoriaDB.Nome,
+		Descricao: categoriaDB.Descricao,
+	}
+
+	return CategoriaService, nil
+}
+
+func (c *CategoriaService) CriarCategoriaStream(stream pb.CategoriaService_CriarCategoriaStreamServer) error {
+	categorias := &pb.ListaDeCategorias{}
+
+	for {
+		categoria, err := stream.Recv()
+
+		if err == io.EOF {
+			return stream.SendAndClose(categorias)
+		}
+
+		if err != nil {
+			return err
+		}
+
+		categoriaResult, err := c.CategoriaDB.Create(categoria.Nome, categoria.Descricao)
+
+		if err != nil {
+			return err
+		}
+
+		categorias.Categoria = append(categorias.Categoria, &pb.Categoria{
+			Id:        categoriaResult.ID,
+			Nome:      categoriaResult.Nome,
+			Descricao: categoriaResult.Descricao,
+		})
+	}
+}
+
+func (c *CategoriaService) CriarCategoriaStreamBI(stream pb.CategoriaService_CriarCategoriaStreamBIServer) error {
+	for {
+		categoria, err := stream.Recv()
+
+		if err == io.EOF {
+			return nil
+		}
+
+		if err != nil {
+			return err
+		}
+
+		categoriaResult, err := c.CategoriaDB.Create(categoria.Nome, categoria.Descricao)
+
+		if err != nil {
+			return err
+		}
+
+		err = stream.Send(&pb.Categoria{
+			Id:        categoriaResult.ID,
+			Nome:      categoriaResult.Nome,
+			Descricao: categoriaResult.Descricao,
+		})
+	}
 }
